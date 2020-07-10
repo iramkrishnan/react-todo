@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 import Todos from './components/Todos';
 import './App.css';
 import Header from './components/layout/header';
+import AddTodo from './components/AddTodo';
+import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
   state = {
     todos: [
       {
-        id: 1,
+        id: uuidv4(),
         title: 'Try to learn react',
         completed: false
       },
       {
-        id: 2,
-        title: 'Learn Laravel Again',
+        id: uuidv4(),
+        title: 'Learn more Laravel',
         completed: false
       },
       {
-        id: 3,
+        id: uuidv4(),
         title: 'Buy some groceries',
         completed: false
       }
@@ -38,21 +40,36 @@ class App extends Component {
   }
 
   // Delete Todo
-
   delTodo = (id) => {
     this.setState({
-      todos: [...this.state.todos.filter(todo => todo.id!==id)]
+      todos: [...this.state.todos.filter(todo => todo.id !== id)]
+    });
+  }
+
+  // Add Todo
+  addTodo = (title) => {
+    const newTodo = {
+      id: uuidv4(),
+      title,
+      completed: false
+    }
+    this.setState({
+      todos: [...this.state.todos, newTodo]
     });
   }
 
   render() {
     return (
       <div className="App">
-        <Header />
-        <Todos
-          todos={this.state.todos}
-          markComplete={this.markComplete}
-          delTodo={this.delTodo} />
+        <div className='container'>
+          <Header />
+          <AddTodo addTodo={this.addTodo} />
+          <Todos
+            todos={this.state.todos}
+            markComplete={this.markComplete}
+            delTodo={this.delTodo} />
+        </div>
+
       </div>
     );
   }
