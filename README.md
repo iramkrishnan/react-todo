@@ -1,3 +1,5 @@
+Project created by using Command create react-app in command prompt.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
