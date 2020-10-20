@@ -1,4 +1,5 @@
-Project created by using Command create react-app in command prompt.
+Project created by using Command `npx create-react-app my-app` in command prompt.
+It is a good way to inititate react app using boilerplate code.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
